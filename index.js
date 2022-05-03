@@ -10,8 +10,6 @@ const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 app.use(cors());
 app.use(express.json());
 
-
-
 // function verifyJWT(req, res, next) {
 //     const authHeader = req.headers.authorization;
 //     if (!authHeader) {
@@ -83,7 +81,7 @@ async function run() {
             res.send(result);
         });
 
-        //update (put method) user
+        //update quantity
 
         app.put('/item/:id', async (req, res) => {
             const id = req.params.id;
