@@ -137,10 +137,6 @@ app.get('/', (req, res) => {
     res.send('Running warehouse management server');
 });
 
-app.get('/test', (req, res) => {
-    res.send('server test');
-});
-
 app.listen(port, () => {
     console.log('listening to port', port);
 });
