@@ -96,7 +96,7 @@ async function run() {
 
         });
 
-        //myitem Collection api 
+        //myitem api 
 
         app.get('/myitem', async (req, res) => {
             // const decodedEmail = req.decoded.email;
