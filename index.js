@@ -27,8 +27,6 @@ app.use(express.json());
 //     // console.log('inside verifyJWT', authHeader);
 // }
 
-
-
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.gjwmj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
@@ -39,14 +37,14 @@ async function run() {
         const itemCollection = client.db('warehouseManagement').collection('items');
         const myItemCollection = client.db('warehouseManagement').collection('myitems');
 
-            //AUTH
-            // app.post('/login', async (req, res) => {
-            //     const user = req.body;
-            //     const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
-            //         expiresIn: '180d'
-            //     });
-            //     res.send({ accessToken });
-            // })
+        //AUTH
+        // app.post('/login', async (req, res) => {
+        //     const user = req.body;
+        //     const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
+        //         expiresIn: '180d'
+        //     });
+        //     res.send({ accessToken });
+        // })
 
         //ITEMS API 
         app.get('/item', async (req, res) => {
@@ -72,7 +70,7 @@ async function run() {
             res.send(result);
         });
 
-        //Delete
+        //DELETE    
 
         app.delete('/item/:id', async (req, res) => {
             const id = req.params.id;
@@ -81,7 +79,7 @@ async function run() {
             res.send(result);
         });
 
-        //update quantity
+        //Updated Quantity
 
         app.put('/item/:id', async (req, res) => {
             const id = req.params.id;
@@ -104,9 +102,9 @@ async function run() {
             // const decodedEmail = req.decoded.email;
             const email = req.query.email;
             // if(email === decodedEmail){
-             
+
             // }
-            const query = {email: email};
+            const query = { email: email };
             const cursor = itemCollection.find(query);
             // const cursor = myItemCollection.find(query);
             const myItems = await cursor.toArray();
@@ -115,7 +113,7 @@ async function run() {
             // else {
             //     res.status(403).send({ message: 'Forbidden Access' })
             // }
-         
+
         });
 
         app.post('/myitem', async (req, res) => {
