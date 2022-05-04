@@ -35,7 +35,7 @@ async function run() {
     try {
         await client.connect();
         const itemCollection = client.db('warehouseManagement').collection('items');
-        const myItemCollection = client.db('warehouseManagement').collection('myitems');
+        // const myItemCollection = client.db('warehouseManagement').collection('myitems');
 
         //AUTH
         // app.post('/login', async (req, res) => {
