@@ -1,3 +1,5 @@
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' https://warehouse-management-server-side-bkfwfjz2u-avijitsaha118.vercel.app;"/>
+
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
